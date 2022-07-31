@@ -91,6 +91,13 @@ class LinkedList:
         if not found:
             print(f"{val} is not found in the list")
 
+    def deleteList(self):
+        if self.head is None:
+            return "Empty List"
+        else:
+            self.head = None
+            self.tail = None
+
 
 l1 = LinkedList()
 l1.insert(29)
@@ -99,3 +106,5 @@ l1.insert(80)
 
 l1.delete(80)
 l1.delete(0)
+l1.deleteList()
+print(l1.deleteList())
