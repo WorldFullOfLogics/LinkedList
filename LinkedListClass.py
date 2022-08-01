@@ -32,19 +32,19 @@ class LinkedList:
             self.head = Node(val)
             self.head.next = prev
         else:
-            cur = 1
+            cnt = 1
             prev = self.head
             while prev:
-                if cur == pos:
+                if cnt == pos:
                     Next = prev.next
                     newNode = Node(val)
                     prev.next = newNode
                     newNode.next = Next
                     break
-                cur += 1
+                cnt += 1
                 prev = prev.next
             else:
-                return f"Invalid position: {pos}. List have only {cur - 1} elements"
+                return f"Invalid position: {pos}. List have only {cnt - 1} elements"
         return "Element insertion to the list is successful"
 
     def __contains__(self, val):
@@ -99,12 +99,13 @@ class LinkedList:
             self.tail = None
 
 
-l1 = LinkedList()
-l1.insert(29)
-l1.insert(96)
-l1.insert(80)
+if __name__ == '__main__':
+    l1 = LinkedList()
+    l1.insert(29)
+    l1.insert(96)
+    l1.insert(80)
 
-l1.delete(80)
-l1.delete(0)
-l1.deleteList()
-print(l1.deleteList())
+    l1.delete(80)
+    l1.delete(0)
+    l1.deleteList()
+    print(l1.deleteList())
