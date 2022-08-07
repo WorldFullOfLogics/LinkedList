@@ -57,11 +57,47 @@ class circularLinkedList:
             self.tail.next = self.head
         return "Element insertion to the list is successful"
 
+    def deleteNode(self, val):
+        if self.head is None:
+            print("Invalid operation!, List is empty")
+            return
+        node = self.head.next
+        prev = self.head
+        if self.head.value == val:
+            self.head = self.head.next
+            self.tail.next = self.head
+        else:
+            while node.next is not self.head:
+                if node.value == val:
+                    prev.next = node.next
+                    break
+                prev = node
+                node = node.next
+            else:
+                print(f"{val} does not exist in the list")
+
+    def deleteList(self):
+        if self.head:
+            self.head = None
+            self.tail = None
+        else:
+            print("Oops! List is empty")
+
+    def __contains__(self, item):
+        node = self.head
+        if self.head is not None:
+            while node:
+                if node.value == item:
+                    return True
+                if node == self.tail:
+                    break
+        return False
+
 
 l1 = circularLinkedList()
-l1.insert(29)
-l1.insert(34)
-l1.insert(37)
-l1.insert(80, 4)
+# l1.insert(29)
+# l1.insert(34)
+# l1.insert(37)
+print(297 in l1)
 
 print([node.value for node in l1])
